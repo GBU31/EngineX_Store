@@ -1,0 +1,32 @@
+{% extends "base.html"%}
+
+{%block content%}
+
+{%load static%}
+<style>
+      @import url('{%static "css/menu.css"%}');
+
+    .item {
+    
+        color:rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    }
+
+    img:hover {
+        box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+        margin-top: 10px;
+        
+    }
+
+</style>
+{%for i in items%}
+<div class="item">
+    <figure class="image is-128x128">
+        
+        <img src="{{i.pic_url}}">
+        {{i.title}}
+        0$
+</figure>
+</div>
+
+{%endfor%}
+{%endblock%}
