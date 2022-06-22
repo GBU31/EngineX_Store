@@ -5,3 +5,7 @@ from .models import *
 def home(request):
     items = item.objects.all()
     return render(request, 'home.html', {'items':items})
+
+
+def login(request):
+    ''
