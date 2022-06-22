@@ -9,24 +9,30 @@
     .item {
     
         color:rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+        margin-right:10px;
     }
 
     img:hover {
         box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-        margin-top: 10px;
-        
+   
     }
 
 </style>
+
 {%for i in items%}
+
 <div class="item">
     <figure class="image is-128x128">
+        <a href="{{i.url}}">
+        <img src="{{i.pic_url}}"></a>
         
-        <img src="{{i.pic_url}}">
-        {{i.title}}
-        0$
+        <small>{{i.title}}</small>
+        <br>
+        <small>0$</small>
 </figure>
 </div>
+
+
 
 {%endfor%}
 {%endblock%}
