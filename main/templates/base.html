@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EngineX Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>    <title>EngineX Store</title>
 </head>
 
 <style>
@@ -15,27 +17,53 @@
 
 
 </style>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 <body>
-    <!--Hey! This is the original version
-of Simple CSS Waves-->
 
 
 <div class="header">
   <ul>
-    <a href=""><li>Create an account</li></a>
+    {%if user.is_authenticated%}
+    
+    <a href="" data-bs-toggle="dropdown" aria-expanded="false"><li>{{user}}</li></a>
+    <ul class="dropdown-menu" style="width:fit-content;">
+      <a  href="/login"><li>Switch accounts</li></a>
+      <a  href="/logout"><li>Log out</li></a>
+    </ul>
+    
+    {%else%}
+    <a href="/login"><li>login</li></a>
+    {%endif%}
+    
     <a href="https://enginex3d.github.io/enginex_website/"><li>EngineX</li></a>
     <a href="https://github.com/EngineX3D"><li>GitHub</li></a>
   </ul>
 
 
     <div class="inner-header flex">
-    <!--Just the logo.. Don't mind this-->
+    
     {%block content%}
     {%endblock%}
     
     </div>
     
-    <!--Waves Container-->
+    
     <div>
     <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
@@ -50,14 +78,10 @@ of Simple CSS Waves-->
     </g>
     </svg>
     </div>
-    <!--Waves end-->
+    
     
     </div>
-    <!--Header ends-->
     
-    <!--Content starts-->
-    
-    <!--Content ends-->
     
 </body>
 </html>
