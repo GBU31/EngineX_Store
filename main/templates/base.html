@@ -11,29 +11,9 @@
 </head>
 
 <style>
-  
   @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
   @import url('{%static "css/bg.css"%}');
-
-
 </style>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 <body>
 
 
@@ -44,13 +24,14 @@
     <a href="" data-bs-toggle="dropdown" aria-expanded="false"><li>{{user}}</li></a>
     <ul class="dropdown-menu" style="width:fit-content;">
       <a  href="/login"><li>Switch accounts</li></a>
+      <a  href="/myassets"><li>My Assets</li></a>
       <a  href="/logout"><li>Log out</li></a>
     </ul>
     
     {%else%}
     <a href="/login"><li>login</li></a>
     {%endif%}
-    
+    <a href="/"><li>Home</li></a>
     <a href="https://enginex3d.github.io/enginex_website/"><li>EngineX</li></a>
     <a href="https://github.com/EngineX3D"><li>GitHub</li></a>
   </ul>
@@ -62,7 +43,6 @@
     {%endblock%}
     
     </div>
-    
     
     <div>
     <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
