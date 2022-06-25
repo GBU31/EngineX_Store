@@ -1,0 +1,48 @@
+{% extends "base.html"%}
+
+{%block content%}
+
+
+{%load static%}
+
+<style>
+      @import url('{%static "css/menu.css"%}');
+      @import url('{%static "css/create.css"%}');
+
+    .item {
+    
+        color:rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+        margin-right:10px;
+    }
+
+    img:hover {
+        box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+   
+    }
+
+</style>
+
+
+
+<form method="post">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button type="sumbit" class="button">Create</button>
+</form>
+
+{%for i in items%}
+{%if i.user == user|safe%}
+<div class="item" style="margin-top:100%">
+    <figure class="image is-128x128">
+        <a href="{{i.url}}">
+        <img src="{{i.pic_url}}"></a>
+        
+        <small>{{i.title}}</small>
+        <br>
+        <small>0$</small>
+</figure>
+</div>
+{%endif%}
+{%endfor%}
+
+{%endblock%}
