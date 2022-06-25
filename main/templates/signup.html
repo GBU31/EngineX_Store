@@ -1,0 +1,32 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up</title>
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <style media="screen">
+        @import url('{%static "css/login_signup.css"%}');
+      
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form method="post" style="height:fit-content; margin-top: 200px;">
+        
+        <h3>Sign Up Here</h3>
+        {%csrf_token%}
+        {{form}}
+        <button type="submit">Sign Up</button>
+        <br>
+        <div><a href="/signup">Log In</a> <a href="/">Not now</a></div>
+    </form>
+</body>
+</html>
