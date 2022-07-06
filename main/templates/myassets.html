@@ -1,12 +1,10 @@
 {% extends "base.html"%}
-
 {%block content%}
-
-
 {%load static%}
 
 <style>
       @import url('{%static "css/menu.css"%}');
+      @import url('{%static "css/modal.css"%}');
       @import url('{%static "css/create.css"%}');
 
     .item {
@@ -24,25 +22,51 @@
 
 
 
-<form method="post">
-    {%csrf_token%}
-    {{form.as_p}}
-    <button type="sumbit" class="button">Create</button>
-</form>
 
-{%for i in items%}
-{%if i.user == user|safe%}
-<div class="item" style="margin-top:100%">
-    <figure class="image is-128x128">
-        <a href="{{i.url}}">
-        <img src="{{i.pic_url}}"></a>
-        
-        <small>{{i.title}}</small>
+
+
+
+<a href="#modal" class="button">Create</a>
+<a href="#modal-my-assets" class="button">My assets</a>
+
+
+
+<div id="modal-my-assets" class="modal">
+    <div class="modal__content">
+        <h1>My assets</h1>
         <br>
-        <small>0$</small>
-</figure>
+
+        {%for i in items%}
+        {%if i.user == user|safe%}
+        <div class="item" style="margin-top:100%">
+            <figure class="image is-128x128">
+                <a href="{{i.url}}">
+                <img src="{{i.pic_url}}"></a>
+                <small>{{i.title}}</small>
+                <br>
+                <small>0$</small>
+        </figure>
+        </div>
+        {%endif%}
+        {%endfor%}
+
+        
+        <a href="#" class="modal__close">&times;</a>
+    </div>
 </div>
-{%endif%}
-{%endfor%}
+
+<div id="modal" class="modal">
+    <div class="modal__content">
+        <h1>Create</h1>
+        <br>
+        <form method="post">
+            {%csrf_token%}
+            {{form.as_p}}
+            <button type="sumbit" class="button">Create</button>
+        </form>
+
+        <a href="#" class="modal__close">&times;</a>
+    </div>
+</div>
 
 {%endblock%}
